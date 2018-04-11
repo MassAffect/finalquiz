@@ -1,0 +1,67 @@
+<resources>
+    //resource regarding the application name
+    <string name="app_name">QuizApp</string>
+
+    //Begin resource group for content group one
+    //resource regarding hint content of EditText content group one while unhidden
+    <string name="hint_text_group_one">User Name</string>
+
+    //resource content displayed in a text field while content group one is unhidden
+    <string name="text_description">This quiz will present questions regarding North American geography. Press the start button below when you are ready to begin. Enjoy the text adventure"</string>
+
+    //content description for welcomeMapImage
+    <string name="welcomeMapImage">Image of North American map made of Lego\'s</string>
+
+    //Resource Start button text
+    <string name="start_button">Start</string>
+
+    //Resource next button text
+    <string name="nextButton">Next Question</string>
+
+    //Resource Submit Score button text
+    <string name="submitScoreButton">Submit Score</string>
+
+    //Begin resource group two
+    //Text content for text fields and radio group to be displayed while unhidden
+    <string name="group_two_text">What is the deepest North American gorge?</string>
+
+    //Radio button one answer text
+    <string name="radio_one">The Grand Canyon</string>
+
+    //Radio button two answer text
+    <string name="radio_two">Sumidero Canyon</string>
+
+    //Radio button three answer text
+    <string name="radio_three">Hells Canyon</string>
+
+    //Radio button four answer text
+    <string name="radio_four">Zion Canyon</string>
+
+    //Begin resource group three
+    //Text content for text fields and radio group to be displayed while unhidden
+    <string name="group_three_text">The first subway in North America began operating in 1897. In what city was this subway opened on the public\'s behalf? Please type the name below.</string>
+
+    //EditText check string
+    <string name="subwayCityInput">Boston</string>
+
+    //Begin resource group four
+    <string name="group_four_text">In 2009, the Sears Tower was renamed as part of a tenants lease agreement. The new name is the Willis Building. In what city is this building located?</string>
+
+    //EditText check string
+    <string name="skyscraperCityInput">Chicago</string>
+
+    //Begin resource group five
+    <string name="group_five_text">True or false. Wagon ruts from the Oregon Trail can still be seen today?</string>
+
+    <string name="check_one">True</string>
+
+    <string name="check_two">False</string>
+
+    //Begin resource group content submission
+    <string name="submissionText">Thanks for taking this quiz. The button below will create a summary if you would like to see your results </string>
+
+    //Email Subject
+    <string name="emailSubject">"Thanks for taking the quiz. Learning is an activity we engage in our whole lives."</string>
+
+
+</resources>
