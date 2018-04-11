@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     int correct = 0;
     int wrong = 0;
     RadioGroup radioGroup;
+    RadioButton radioButton;
     CheckBox checkBox;
 
 
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         // Get user's name
         EditText nameField = (EditText) findViewById(R.id.plainTextInput);
         Editable nameEditable = nameField.getText();
-        String name = nameEditable.toString();
+        name = nameEditable.toString();
         findViewById(R.id.content_group_one).setVisibility(ViewGroup.GONE);
         findViewById(R.id.content_group_three).setVisibility(ViewGroup.GONE);
         findViewById(R.id.content_group_four).setVisibility(ViewGroup.GONE);
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         if (nextCount == 1) {
             nextCount = nextCount + 1;
             radioGroup = findViewById(R.id.radioGroup);
+
             findViewById(R.id.content_group_two).setVisibility(ViewGroup.GONE);
             findViewById(R.id.content_group_three).setVisibility(ViewGroup.VISIBLE);
         } else if (nextCount == 2) {
@@ -101,20 +104,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkButton(View v) {
         // Display the order summary on the screen
-        String message = (String) createOrderSummary(name, radioGroup, subwayCity, skyscraperCity, checkBox);
+        String message = (String) createOrderSummary(radioGroup, subwayCity, skyscraperCity, checkBox);
         findViewById(R.id.displayMessage).setVisibility(TextView.VISIBLE);
         displayMessage(message);
         }
 
-    private String createOrderSummary(String name, RadioGroup radioGroup, String subwayCity, String skyscraperCity, CheckBox checkBox){
-        String message = "Hello, " + (String) name;
-        message += "\nThe answer to question 1 was true. \nYou selected " + radioGroup + " for your answer.";
-        message += "\nThe answer to question 2 was Boston. \nYou answered " + subwayCity;
-        message += "\nThe answer to question 3 was Boston. \nYou answered" + skyscraperCity;
+    private String createOrderSummary(RadioGroup radioGroup, String subwayCity, String skyscraperCity, CheckBox checkBox){
+        String message = "Hello, " + name;
+        message += "\nThe answer to question 1 was " + getText(R.string.radio_three) + ". \nYou selected " + getString(R.id.radioGroup, true) + " for your answer.";
+        message += "\nThe answer to question 2 was Boston. \nYou answered " + getText(R.string.subwayCityInput);
+        message += "\nThe answer to question 3 was Boston. \nYou answered" + getText(R.string.skyscraperCityInput);
         message += "\nThe answer to question 4 was Boston. \nYou answered" + checkBox;
         message += "\nI hope you enjoyed this quiz as \nmuch as I enjoyed creating it.";
         return message;
 }
+
 
     public void checkbox(View view) {
         // Is the view now checked?
