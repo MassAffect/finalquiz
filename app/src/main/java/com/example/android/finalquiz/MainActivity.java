@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     String name;
     String subwayCity;
     String skyscraperCity;
+    String selectedText;
+    String Checked;
     int nextCount = 1;
     int correct = 0;
     int wrong = 0;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         radioGroup = findViewById(R.id.radioGroup);
-
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         content_group_one = (ViewGroup) findViewById(R.id.content_group_one);
         content_group_two = (ViewGroup) findViewById(R.id.content_group_two);
         content_group_three = (ViewGroup) findViewById(R.id.content_group_three);
@@ -71,7 +73,11 @@ public class MainActivity extends AppCompatActivity {
     public void nextButton(View view) {
         if (nextCount == 1) {
             nextCount = nextCount + 1;
-            radioGroup = findViewById(R.id.radioGroup);
+            int checkId = radioGroup.getCheckedRadioButtonId();
+            View radioButton = radioGroup.findViewById(checkId);
+            int radioIndex = radioGroup.indexOfChild(radioButton);
+            RadioButton r = (RadioButton)radioGroup.getChildAt(radioIndex);
+            selectedText = r.getText().toString();
 
             findViewById(R.id.content_group_two).setVisibility(ViewGroup.GONE);
             findViewById(R.id.content_group_three).setVisibility(ViewGroup.VISIBLE);
@@ -90,8 +96,11 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.content_group_four).setVisibility(ViewGroup.GONE);
             findViewById(R.id.content_group_five).setVisibility(ViewGroup.VISIBLE);
         } else if (nextCount == 4) {
+
             checkBox = findViewById(R.id.check_one);
             checkBox = (CheckBox) findViewById(R.id.check_one);
+            if (checkBox.isChecked()){
+            }
             findViewById(R.id.content_group_five).setVisibility(ViewGroup.GONE);
             findViewById(R.id.content_group_six).setVisibility(ViewGroup.VISIBLE);
         }
@@ -104,17 +113,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkButton(View v) {
         // Display the order summary on the screen
-        String message = (String) createOrderSummary(radioGroup, subwayCity, skyscraperCity, checkBox);
+        String message = (String) createOrderSummary(selectedText, subwayCity, skyscraperCity, checkBox);
         findViewById(R.id.displayMessage).setVisibility(TextView.VISIBLE);
         displayMessage(message);
         }
 
-    private String createOrderSummary(RadioGroup radioGroup, String subwayCity, String skyscraperCity, CheckBox checkBox){
+    private String createOrderSummary(String text, String subwayCity, String skyscraperCity, CheckBox checkBox){
         String message = "Hello, " + name;
-        message += "\nThe answer to question 1 was " + getText(R.string.radio_three) + ". \nYou selected " + getString(R.id.radioGroup, true) + " for your answer.";
+        message += "\nThe answer to question 1 was " + getText(R.string.radio_three) + ". \nYou selected " + text + " for your answer.";
         message += "\nThe answer to question 2 was Boston. \nYou answered " + getText(R.string.subwayCityInput);
-        message += "\nThe answer to question 3 was Boston. \nYou answered" + getText(R.string.skyscraperCityInput);
-        message += "\nThe answer to question 4 was Boston. \nYou answered" + checkBox;
+        message += "\nThe answer to question 3 was Chicago. \nYou answered " + getText(R.string.skyscraperCityInput);
+        message += "\nThe answer to question 4 was True. \nYou answered" + checkBox;
         message += "\nI hope you enjoyed this quiz as \nmuch as I enjoyed creating it.";
         return message;
 }
