@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 strMessage += "Oregon";
             }
 
-            if (checkBox.isChecked()) {
+            if (chkBoxTwo.isChecked()) {
                 strMessage += "Wyoming";
             }
 
