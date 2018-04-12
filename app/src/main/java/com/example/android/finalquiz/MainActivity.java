@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,13 +25,16 @@ public class MainActivity extends AppCompatActivity {
     String subwayCity;
     String skyscraperCity;
     String selectedText;
-    String Checked;
+    String msgToDisplay;
     int nextCount = 1;
     int correct = 0;
     int wrong = 0;
     RadioGroup radioGroup;
     RadioButton radioButton;
     CheckBox checkBox;
+    CheckBox chkBoxOne;
+    CheckBox chkBoxTwo;
+    CheckBox chkBoxThree;
 
 
     @Override
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         content_group_four = (ViewGroup) findViewById(R.id.content_group_four);
         content_group_five = (ViewGroup) findViewById(R.id.content_group_five);
         content_group_six = (ViewGroup) findViewById(R.id.content_group_six);
+        initialUISetup();
 
     }
 
@@ -65,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.displayMessage).setVisibility(TextView.GONE);
     }
 
+    public void initialUISetup() {
+        chkBoxOne = (CheckBox) findViewById(R.id.check_one);
+        chkBoxTwo = (CheckBox) findViewById(R.id.check_two);
+        chkBoxThree = (CheckBox) findViewById(R.id.check_three);
+    }
+
     /**
      * This method increments a counter to validate the users progress in the quiz
      * based on incrementation the method determines how the UI is presented to the user
@@ -76,9 +87,8 @@ public class MainActivity extends AppCompatActivity {
             int checkId = radioGroup.getCheckedRadioButtonId();
             View radioButton = radioGroup.findViewById(checkId);
             int radioIndex = radioGroup.indexOfChild(radioButton);
-            RadioButton r = (RadioButton)radioGroup.getChildAt(radioIndex);
+            RadioButton r = (RadioButton) radioGroup.getChildAt(radioIndex);
             selectedText = r.getText().toString();
-
             findViewById(R.id.content_group_two).setVisibility(ViewGroup.GONE);
             findViewById(R.id.content_group_three).setVisibility(ViewGroup.VISIBLE);
         } else if (nextCount == 2) {
@@ -96,14 +106,29 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.content_group_four).setVisibility(ViewGroup.GONE);
             findViewById(R.id.content_group_five).setVisibility(ViewGroup.VISIBLE);
         } else if (nextCount == 4) {
-
-            checkBox = findViewById(R.id.check_one);
-            checkBox = (CheckBox) findViewById(R.id.check_one);
-            if (checkBox.isChecked()){
+            //code to check if this checkbox is checked!
+            String strMessage = "";
+            if (chkBoxOne.isChecked()) {
+                strMessage += "Oregon";
             }
+
+            if (checkBox.isChecked()) {
+                strMessage += "Wyoming";
+            }
+
+            if (chkBoxThree.isChecked()) {
+                strMessage += "Arizona";
+            }
+
+            showTextNotification(strMessage);
             findViewById(R.id.content_group_five).setVisibility(ViewGroup.GONE);
             findViewById(R.id.content_group_six).setVisibility(ViewGroup.VISIBLE);
         }
+
+    }
+
+    public void showTextNotification(String msgToDisplay) {
+        Toast.makeText(this, msgToDisplay, Toast.LENGTH_SHORT).show();
     }
 
     private void displayMessage(String message) {
@@ -113,20 +138,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkButton(View v) {
         // Display the order summary on the screen
-        String message = (String) createOrderSummary(selectedText, subwayCity, skyscraperCity, checkBox);
-        findViewById(R.id.displayMessage).setVisibility(TextView.VISIBLE);
+        String message = createOrderSummary(selectedText, subwayCity, skyscraperCity, msgToDisplay);
+        findViewById(R.id.displayMessage).setVisibility(TextView.GONE);
         displayMessage(message);
-        }
+    }
 
-    private String createOrderSummary(String text, String subwayCity, String skyscraperCity, CheckBox checkBox){
+    private String createOrderSummary(String text, String subwayCity, String skyscraperCity,String msgToDisplay) {
         String message = "Hello, " + name;
         message += "\nThe answer to question 1 was " + getText(R.string.radio_three) + ". \nYou selected " + text + " for your answer.";
         message += "\nThe answer to question 2 was Boston. \nYou answered " + getText(R.string.subwayCityInput);
         message += "\nThe answer to question 3 was Chicago. \nYou answered " + getText(R.string.skyscraperCityInput);
-        message += "\nThe answer to question 4 was True. \nYou answered" + checkBox;
+        message += "\nThe answer to question 4 was Oregon and Wyoming. \nYou answered" + msgToDisplay;
         message += "\nI hope you enjoyed this quiz as \nmuch as I enjoyed creating it.";
         return message;
-}
+    }
 
 
     public void checkbox(View view) {

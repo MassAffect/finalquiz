@@ -51,11 +51,13 @@
     <string name="skyscraperCityInput">Chicago</string>
 
     //Begin resource group five
-    <string name="group_five_text">True or false. Wagon ruts from the Oregon Trail can still be seen today?</string>
+    <string name="group_five_text">Multiple Choice. Wagon ruts from the Oregon Trail can still be seen in what states?</string>
 
-    <string name="check_one">True</string>
+    <string name="check_one">Oregon</string>
 
-    <string name="check_two">False</string>
+    <string name="check_two">Wyoming</string>
+
+    <string name="check_three">Arizona</string>
 
     //Begin resource group content submission
     <string name="submissionText">Thanks for taking this quiz. The button below will create a summary if you would like to see your results </string>

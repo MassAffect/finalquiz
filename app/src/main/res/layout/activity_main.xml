@@ -11,7 +11,10 @@
         android:id="@+id/content_group_one"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        android:textSize="16sp">
 
         <EditText
             android:id="@+id/plainTextInput"
@@ -19,14 +22,18 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_text_group_one"
             android:inputType="textCapWords"
-            android:padding="16dp" />
+            android:maxLength="14"
+            android:padding="16dp"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@string/text_description" />
+            android:text="@string/text_description"
+            android:contentDescription="@string/text_description"
+            android:textSize="16sp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -36,7 +43,8 @@
             android:onClick="startButton"
             android:padding="16dp"
             android:text="@string/start_button"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/welcomeMapImage"
@@ -60,20 +68,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/group_two_text"
-            android:textSize="20sp" />
+            android:contentDescription="@string/group_two_text"
+            android:textSize="16sp" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textSize="20sp">
+            android:textSize="16sp">
 
             <RadioButton
                 android:id="@+id/radio_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:contentDescription="@string/radio_one"
                 android:onClick="checkButton"
                 android:text="@string/radio_one" />
 
@@ -81,6 +91,7 @@
                 android:id="@+id/radio_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/radio_two"
                 android:onClick="checkButton"
                 android:text="@string/radio_two" />
 
@@ -88,6 +99,7 @@
                 android:id="@+id/radio_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/radio_three"
                 android:onClick="checkButton"
                 android:text="@string/radio_three" />
 
@@ -95,6 +107,7 @@
                 android:id="@+id/radio_four"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/radio_four"
                 android:onClick="checkButton"
                 android:text="@string/radio_four" />
         </RadioGroup>
@@ -103,15 +116,17 @@
             android:id="@+id/nextButtonOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
             android:onClick="nextButton"
-            android:text="@string/nextButton" />
+            android:padding="16dp"
+            android:text="@string/nextButton"
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:contentDescription="Image of Snake River"
             android:src="@drawable/snakeriver" />
@@ -129,10 +144,12 @@
             android:id="@+id/content_group_three_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/group_three_text"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/group_three_text" />
+            android:text="@string/group_three_text"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/subwayCityInput"
@@ -141,16 +158,18 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:maxLength="8"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/nextButtonTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
             android:onClick="nextButton"
-            android:text="@string/nextButton" />
+            android:text="@string/nextButton"
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -175,10 +194,12 @@
             android:id="@+id/content_group_four_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/group_four_text"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/group_four_text" />
+            android:text="@string/group_four_text"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/skyscraperCityInput"
@@ -187,7 +208,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:maxLength="8"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/nextButtonThree"
@@ -196,7 +219,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:onClick="nextButton"
-            android:text="@string/nextButton" />
+            android:text="@string/nextButton"
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -205,6 +229,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="Image of a man playing golf from the steel frame of a Skyscraper under construction"
             android:src="@drawable/rkoteetime" />
 
 
@@ -221,34 +246,52 @@
             android:id="@+id/content_group_five_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/group_five_text" />
+            android:contentDescription="@string/group_five_text"
+            android:text="@string/group_five_text"
+            android:textSize="16sp" />
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/check_one"
-                android:text="@string/check_one"
-                android:onClick="checkbox"/>
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/check_two"
-                android:text="@string/check_two"
-                android:onClick="checkbox"/>
+        <CheckBox
+            android:id="@+id/check_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/check_one"
+            android:onClick="checkbox"
+            android:text="@string/check_one"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/check_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/check_two"
+            android:onClick="checkbox"
+            android:text="@string/check_two"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/check_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/check_three"
+            android:onClick="checkbox"
+            android:text="@string/check_three"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:onClick="nextButton"
-            android:text="@string/nextButton" />
+            android:text="@string/nextButton"
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="Image depicts a public map of the Oregon Trail"
             android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/oregontrail" />
@@ -260,31 +303,39 @@
         android:id="@+id/content_group_six"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginRight="16dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/content_group_submission"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/submissionText"
             android:layout_marginRight="16dp"
-            android:text="@string/submissionText" />
+            android:text="@string/submissionText"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/submitScoreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:onClick="checkButton"
-            android:text="@string/submitScoreButton" />
+            android:text="@string/submitScoreButton"
+            android:textSize="16sp" />
+
         <TextView
+            android:id="@+id/displayMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/displayMessage"
-            android:text=""/>
+            android:text=""
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="Image shows words the end has been written in the sand signifying many things end but not all resolutions need to be final"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
