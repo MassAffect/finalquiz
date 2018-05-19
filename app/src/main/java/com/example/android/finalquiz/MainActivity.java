@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     String selectedText;
     String msgToDisplay;
     int nextCount = 1;
-    int correct = 0;
-    int wrong = 0;
+    int correct;
+    int wrong;
     RadioGroup radioGroup;
     RadioButton radioButton;
     CheckBox checkBox;
